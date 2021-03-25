@@ -3,6 +3,8 @@
 #RSA in Python by Antoni Szymanski 2021
 #License: Freeware
 #**************************************
+#Info:
+#The group of characters '<CNF>' symbolizes an invalid character in the given text
 
 import pyglet,time
 
@@ -10,6 +12,7 @@ alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'
 morse_code = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..', '-----', '.----', '..---', '...--', '....-', '.....', '-....', '--...', '---..', '----.', '.-.-.-', '--..--', '..--..', '.----.', '-.-.--', '-..-.', '-.--.', '-.--.-', '.-...', '---...', '-.-.-.', '-...-', '.-.-.', '-....-', '..--.-', '.-..-.', '...-..-', '.--.-.', '..-.-', '--...-', '.-.-', '-.-..', '..-..', '.-..-', '--.--', '---.', '...-...', '--..-.', '--..-', '/']
 
 def play(file):
+    #sub-function that plays .mp3 files
     music = pyglet.resource.media(file)
     music.play()
     pyglet.app.exit()
@@ -21,6 +24,7 @@ def slownikb(key):
     return alphabet[morse_code.index(key)]
 
 def coder(txt):
+    #morse encoder function
     txt = txt.upper()
     morse = ''
     for x in txt:
@@ -31,6 +35,7 @@ def coder(txt):
     return morse.strip()
 
 def decoder(morse):
+    #morse decoder function
     morselist = morse.split(' ')
     txt = ''
     for x in morselist:
@@ -43,6 +48,7 @@ def decoder(morse):
     return txt
     
 def morseplay(morse):
+    #morse code recovery function
     times = 0
     for x in morse:
         if x == '.':
